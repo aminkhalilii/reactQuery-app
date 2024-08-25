@@ -7,13 +7,13 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 const client = new QueryClient({
 		defaultOptions:{
 			queries:{
-				staleTime:10000,
-				gcTime:5000,
+				staleTime:5000,
+				// gcTime:5000,
 				// refetchOnWindowFocus:false,
-				// refetchOnMount:false, when paint component
-				// refetchOnReconnect:false,
+				// refetchOnMount:false, //when paint component
+				// refetchOnReconnect:false, //when connection is back
 				// refetchInterval:5000
-				// retry:false
+				// retry:false //count of retry
 				// retryDelay:5000
 				// cacheTime:5000
 				// keepPreviousData:true

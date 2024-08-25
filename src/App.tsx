@@ -1,14 +1,9 @@
 import './App.css'
-import AdvertisersList from './components/AdvertisersList'
+import AdContainer from './components/AdContainer'
 
 function App() {
   return <>
-    <AdvertisersList />
-    <AdvertisersList />
-    <AdvertisersList />
-    <AdvertisersList />
-    <AdvertisersList />
-    <AdvertisersList />
+    <AdContainer />
   </>
 }
 
