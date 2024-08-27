@@ -1,8 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-
- const useAds = ( adsType:string ) => {
+export type AdsPageParams = {
+  ad_type?: number;
+  page: number;
+}
+ const useAdsPaginated = ( pageParams: AdsPageParams ) => {
 	const { data } = useQuery({
-		queryKey: ["Ads",adsType],
+		queryKey: ["Ads",...pageParams],
 		queryFn: async () => {
       
       let url = 'http://localhost:5000/ads/advertises/'
@@ -17,4 +20,5 @@ import { useQuery } from "@tanstack/react-query";
 	});
 	return { data   };
 };
-export default useAds;
+export default useAdsPaginated;
+ 
