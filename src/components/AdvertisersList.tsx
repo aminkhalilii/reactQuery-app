@@ -11,7 +11,7 @@ const AdvertisersList = () => {
   const { data,isPending} = useQuery({
     queryKey: ['posts'],
     queryFn: async ()=>{
-      const res = await fetch('http://localhost:5000/ads/advertises/?ad_type=sell')
+      const res = await fetch('https://jsonplaceholder.typicode.com/posts')
       return res.json()
     }
   })

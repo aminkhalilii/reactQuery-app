@@ -1,13 +1,14 @@
 import AdsList from "./AdsList";
-import useAds from "../hooks/useAds";
 import { useState } from "react";
+import useAdsPaginated from "../hooks/useAdsPaginated";
 
 const AdContainer = () => {
 	const [filter, setFilter] = useState("all");
-	const { data } = useAds(filter);
+	const { data,totalItems } = useAdsPaginated(filter);
 	if (!data) return <h1>Loading</h1>;
 	return (
 		<>
+		<div>total numbers : {totalItems}</div>
 			<div className="flex justify-center gap-4 text-red-400">
 				<div className="" onClick={() => setFilter("all")}>
 					All

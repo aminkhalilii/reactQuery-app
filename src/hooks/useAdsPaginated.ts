@@ -3,22 +3,23 @@ export type AdsPageParams = {
   ad_type?: number;
   page: number;
 }
- const useAdsPaginated = ( pageParams: AdsPageParams ) => {
+ const useAdsPaginated = ( ) => {
+	let totalItems :number = 0;
 	const { data } = useQuery({
-		queryKey: ["Ads",...pageParams],
+		queryKey: ["Ads"],
 		queryFn: async () => {
-      
-      let url = 'http://localhost:5000/ads/advertises/'
-      if(adsType != "all")
-        url+='?ad_type=' + adsType;
-
+      const url = 'https://jsonplaceholder.typicode.com/posts'
 			const res:Response = await fetch(
 				url
 			);
 			return res.json();
 		},
+		select : (data) =>{
+			totalItems = data.length;
+			return data;
+		}
 	});
-	return { data   };
+	return { data ,totalItems  };
 };
 export default useAdsPaginated;
- 
+  
